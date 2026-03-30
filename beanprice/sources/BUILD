@@ -96,3 +96,22 @@ py_test(
         "//beancount/prices/sources:tsp",
     ],
 )
+
+py_library(
+    name = "rapid",
+    srcs = ["rapid.py"],
+    deps = [
+        "//beancount/core:number",
+        "//beancount/prices:source",
+    ],
+)
+
+py_test(
+    name = "rapid_test",
+    srcs = ["rapid_test.py"],
+    deps = [
+        "//beancount/core:number",
+        "//beancount/prices:source",
+        "//beancount/prices/sources:rapid",
+    ],
+)

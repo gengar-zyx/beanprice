@@ -63,6 +63,7 @@ The following price sources are available:
 | European Central Bank API| `beanprice.ecbrates`      | [Many currencies](https://data.ecb.europa.eu/search-results?searchTerm=exchange%20rates)                     | [Many currencies](https://data.ecb.europa.eu/search-results?searchTerm=exchange%20rates) (Derived from EUR rates)| ✓             | ✓                |
 | OANDA                   | `beanprice.oanda`         | [Many currencies](https://developer.oanda.com/exchange-rates-api/v1/currencies/)  | [Many currencies](https://developer.oanda.com/exchange-rates-api/v1/currencies/) | ✓             | ✓                 |
 | Quandl                  | `beanprice.quandl`        | [Various datasets](https://www.quandl.com/search)                                 | [Various datasets](https://www.quandl.com/search)                                | ✓             | ✓                 |
+| RapidAPI Twelve Data    | `beanprice.rapid`         | Stocks with bare symbols such as `AAPL`                                           | Exchange-reported quote currency                                                 | ✓             | ✓                 |
 | Rates API               | `beanprice.ratesapi`      | [Many currencies](https://api.exchangerate.host/symbols)                          | [Many currencies](https://api.exchangerate.host/symbols)                         | ✓             | ✓                 |
 | Thrift Savings Plan     | `beanprice.tsp`           | TSP Funds                                                                         | USD                                                                              | ✓             | ✓                 |
 | Yahoo                   | `beanprice.yahoo`         | Many currencies                                                                   | Many currencies                                                                  | ✓             | ✓                 |
@@ -94,6 +95,14 @@ Then use your price source in the commodities
   price: "AUD:my_package.my_module/XYZ"
 ```
 `AUD` just being an example of a currency specification.
+
+For the built-in RapidAPI source, set `RAPID_API_KEY` and use bare stock
+symbols, for example:
+
+```beancount
+2000-01-01 commodity AAPL
+  price: "USD:rapid/AAPL"
+```
 
 ## Testing
 
